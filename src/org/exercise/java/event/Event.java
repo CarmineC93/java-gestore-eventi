@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-public abstract class Event {
+public abstract class Event implements Comparable<Event>{
 
     //ATTRIBUTES
     private String title;
@@ -103,5 +103,6 @@ public abstract class Event {
         int avaiableTickets = getCapacityLocation() - getBooking();
         return avaiableTickets;
     }
+
 
 }

@@ -2,6 +2,7 @@ package org.exercise.java.event;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class EventsPlan {
@@ -45,12 +46,20 @@ public class EventsPlan {
         events.removeAll(allEvents());
     }
 
-        /*un metodo che restituisce una stringa che mostra il titolo del programma e tutti gli
+    /*un metodo che restituisce una stringa che mostra il titolo del programma e tutti gli
     eventi ordinati per data nella forma:
     ○ data1 - titolo1
     ○ data2 - titolo2
-    ○ data3 - titolo3
-*/
+    ○ data3 - titolo3 */
+    public List<Event> orderByDate(){
+        //primo modo con comparable con ordinamento di default
+        Collections.sort(events);
+        //con un secondo modo, con comparator, possiamo evitare di aggiungere implements comparatore<type> sulla classe da comparare, e possiamo scegliere criteri non di default
+
+        return events;
+    }
+
+
 
     @Override
     public String toString() {

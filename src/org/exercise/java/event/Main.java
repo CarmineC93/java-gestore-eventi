@@ -51,21 +51,23 @@ public class Main {
         System.out.println(concertox);
 
         //BONUS
-        EventsPlan serataAllaScala = new EventsPlan("Notti Magiche");
-        serataAllaScala.addEvent(concertox);
-        serataAllaScala.addEvent(concertoy);
+        EventsPlan serateAllaScala = new EventsPlan("Notti Magiche");
+        serateAllaScala.addEvent(concertox);
+        serateAllaScala.addEvent(concertoy);
 
         //test filtro data
-        System.out.println(serataAllaScala.filterEvents(LocalDate.of(2023,05,02)));
+        System.out.println(serateAllaScala.filterEvents(LocalDate.of(2023,05,02)));
 
         //test tutti gli eventi nel programma
-        System.out.println(serataAllaScala.allEvents());
+        System.out.println(serateAllaScala.allEvents());
+
+        //test ordinamento per date
+        serateAllaScala.orderByDate();
+        System.out.println("ordered by date: " + serateAllaScala.allEvents());
 
         //test svuoto programma
-        serataAllaScala.removeAll();
-        System.out.println(serataAllaScala.allEvents());
-
-
+        serateAllaScala.removeAll();
+        System.out.println(serateAllaScala.allEvents());
 
 
     }
