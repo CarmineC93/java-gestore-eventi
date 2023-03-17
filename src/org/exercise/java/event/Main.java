@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-
         Event concertox = new Concert("ConcertoX", LocalDate.of(2023,05,02), 50, LocalTime.of(15,30), new BigDecimal("200.00"));
 
         Scanner scan = new Scanner(System.in);

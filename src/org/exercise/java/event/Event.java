@@ -13,11 +13,10 @@ public class Event {
     private int booking;
 
     //CONSTRUCTORS
-
     public Event(String title, LocalDate dateEvent, int capacityLocation) throws IllegalArgumentException{
         this.title = title;
 
-        if(isValidDate()){
+        if(isValidDate(dateEvent)){
             this.dateEvent = dateEvent;
         }
 
@@ -30,7 +29,6 @@ public class Event {
     }
 
     //GETTER & SETTER
-
     public String getTitle() {
         return title;
     }
@@ -61,7 +59,6 @@ public class Event {
     }
 
     //METHODS
-
     @Override
     public String toString() {
         return "Event{" +
@@ -71,7 +68,7 @@ public class Event {
     }
 
     public void bookEvent() throws IllegalArgumentException{
-        if(!isValidDate() || !thereIsSpace()){
+        if(!isValidDate(dateEvent) || !thereIsSpace()){
             throw new IllegalArgumentException("Sorry, this event is no more avaiable");
         } else{
             booking ++;
@@ -79,21 +76,20 @@ public class Event {
     }
 
     public void cancellationEvent() throws IllegalArgumentException{
-        if(!isValidDate() || booking == 0){
+        if(!isValidDate(dateEvent) || booking == 0){
             throw new IllegalArgumentException("There is no booking yet or the date is past");
         } else{
             booking --;
         }
     }
 
-    private boolean isValidDate() throws IllegalArgumentException{/*
-        LocalDate today = LocalDate.now();
-        if (dateEvent.isBefore(today)){
+    private boolean isValidDate(LocalDate dateEvent) throws IllegalArgumentException{
+        if (dateEvent.isBefore(LocalDate.now())){
             throw new IllegalArgumentException("Impossible, the event is past");
         } else {
             return true;
-        }*/
-        return true;
+        }
+       // return true;
     }
 
     private boolean thereIsSpace() throws IllegalArgumentException{
