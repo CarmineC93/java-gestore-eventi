@@ -3,6 +3,7 @@ package org.exercise.java.event;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class EventsPlan {
@@ -52,11 +53,15 @@ public class EventsPlan {
     ○ data2 - titolo2
     ○ data3 - titolo3 */
     public List<Event> orderByDate(){
-        //primo modo con comparable con ordinamento di default
-        Collections.sort(events);
-        //con un secondo modo, con comparator, possiamo evitare di aggiungere implements comparatore<type> sulla classe da comparare, e possiamo scegliere criteri non di default
+        //poichè collection.sort sovrascrive l'originale, ne creo un'altra e la riempio, in modo da non toccare la lista events
+        List<Event> orderedList = new ArrayList<>();
+        orderedList.addAll(events);
 
-        return events;
+        //primo modo con comparable con ordinamento di default
+        Collections.sort(orderedList);
+        //con un secondo modo, con comparator, possiamo evitare di aggiungere implements comparator<type> sulla classe da comparare, e possiamo scegliere criteri non di default
+
+        return orderedList;
     }
 
 

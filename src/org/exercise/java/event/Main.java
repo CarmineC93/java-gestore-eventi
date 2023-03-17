@@ -10,6 +10,9 @@ public class Main {
 
         Event concertox = new Concert("ConcertoX", LocalDate.of(2023,05,02), 50, LocalTime.of(19,30), new BigDecimal("200.00"));
         Event concertoy = new Concert("concertoY", LocalDate.of(2023,06,15), 200, LocalTime.of(20,30), new BigDecimal("150.00"));
+        Event concertoz = new Concert("concertoZ", LocalDate.of(2023,10,24), 300, LocalTime.of(20,30), new BigDecimal("170.00"));
+        Event concertom = new Concert("concertoM", LocalDate.of(2023,04,03), 300, LocalTime.of(20,30), new BigDecimal("170.00"));
+
 
         Scanner scan = new Scanner(System.in);
 
@@ -54,6 +57,8 @@ public class Main {
         EventsPlan serateAllaScala = new EventsPlan("Notti Magiche");
         serateAllaScala.addEvent(concertox);
         serateAllaScala.addEvent(concertoy);
+        serateAllaScala.addEvent(concertoz);
+        serateAllaScala.addEvent(concertom);
 
         //test filtro data
         System.out.println(serateAllaScala.filterEvents(LocalDate.of(2023,05,02)));
@@ -62,8 +67,7 @@ public class Main {
         System.out.println(serateAllaScala.allEvents());
 
         //test ordinamento per date
-        serateAllaScala.orderByDate();
-        System.out.println("ordered by date: " + serateAllaScala.allEvents());
+         System.out.println(serateAllaScala.orderByDate());
 
         //test svuoto programma
         serateAllaScala.removeAll();

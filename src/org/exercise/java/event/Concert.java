@@ -58,7 +58,8 @@ public class Concert extends Event{
 
 
     @Override
-    public int compareTo(Event o) {
-        return 0;
+    public int compareTo(Event e) {
+        return getDateEvent().compareTo(e.getDateEvent());
     }
+
 }
