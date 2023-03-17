@@ -8,7 +8,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Event concertox = new Concert("ConcertoX", LocalDate.of(2023,05,02), 50, LocalTime.of(15,30), new BigDecimal("200.00"));
+        Event concertox = new Concert("ConcertoX", LocalDate.of(2023,05,02), 50, LocalTime.of(19,30), new BigDecimal("200.00"));
+        Event concertoy = new Concert("concertoY", LocalDate.of(2023,06,15), 200, LocalTime.of(20,30), new BigDecimal("150.00"));
 
         Scanner scan = new Scanner(System.in);
 
@@ -48,6 +49,24 @@ public class Main {
             }while(choise != 3);
 
         System.out.println(concertox);
+
+        //BONUS
+        EventsPlan serataAllaScala = new EventsPlan("Notti Magiche");
+        serataAllaScala.addEvent(concertox);
+        serataAllaScala.addEvent(concertoy);
+
+        //test filtro data
+        System.out.println(serataAllaScala.filterEvents(LocalDate.of(2023,05,02)));
+
+        //test tutti gli eventi nel programma
+        System.out.println(serataAllaScala.allEvents());
+
+        //test svuoto programma
+        serataAllaScala.removeAll();
+        System.out.println(serataAllaScala.allEvents());
+
+
+
 
     }
 }

@@ -52,4 +52,11 @@ public class EventsPlan {
     ○ data3 - titolo3
 */
 
+    @Override
+    public String toString() {
+        return "EventsPlan{" +
+                "title='" + title + '\'' +
+                ", events=" + events +
+                '}';
+    }
 }
