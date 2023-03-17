@@ -43,11 +43,8 @@ public class Main {
                         }catch(Exception e){
                             System.out.println("Error: "+ e.getMessage());
                         }
-
                     System.out.println("Booked: " + concertox.getBooking() + " " + "Avaiable: " + (concertox.getAvaiable()));
-            }
-
-
+                }
             }while(choise != 3);
 
         System.out.println(concertox);

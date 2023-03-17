@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-public class Event {
+public abstract class Event {
 
     //ATTRIBUTES
     private String title;
@@ -89,7 +89,6 @@ public class Event {
         } else {
             return true;
         }
-       // return true;
     }
 
     private boolean thereIsSpace() throws IllegalArgumentException{
