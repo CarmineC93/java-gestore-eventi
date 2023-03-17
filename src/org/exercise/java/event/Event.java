@@ -14,7 +14,7 @@ public class Event {
 
     //CONSTRUCTORS
 
-    public Event(String title, LocalDate dateEvent, int capacityLocation) {
+    public Event(String title, LocalDate dateEvent, int capacityLocation) throws IllegalArgumentException{
         this.title = title;
 
         if(isValidDate()){
@@ -60,48 +60,53 @@ public class Event {
         return booking;
     }
 
-
     //METHODS
+
     @Override
     public String toString() {
-
         return "Event{" +
                 "title='" + title + '\'' +
                 ", dateEvent=" +  getFormattedDate() +
                 '}';
     }
 
-    public void bookEvent(){
+    public void bookEvent() throws IllegalArgumentException{
         if(!isValidDate() || !thereIsSpace()){
-            throw new RuntimeException();
+            throw new IllegalArgumentException("Sorry, this event is no more avaiable");
         } else{
-            booking += 1;
+            booking ++;
         }
     }
 
-    public void cancellationEvent(){
+    public void cancellationEvent() throws IllegalArgumentException{
         if(!isValidDate() || booking == 0){
-            throw new RuntimeException();
+            throw new IllegalArgumentException("There is no booking yet or the date is past");
         } else{
-            booking -= 1;
+            booking --;
         }
     }
 
-    private boolean isValidDate(){
+    private boolean isValidDate() throws IllegalArgumentException{/*
         LocalDate today = LocalDate.now();
-        if (dateEvent.isBefore(today) || today.isAfter(dateEvent)){
-            throw new RuntimeException();
+        if (dateEvent.isBefore(today)){
+            throw new IllegalArgumentException("Impossible, the event is past");
         } else {
             return true;
-        }
+        }*/
+        return true;
     }
 
-    private boolean thereIsSpace(){
+    private boolean thereIsSpace() throws IllegalArgumentException{
         if (capacityLocation - booking <= 0){
-            throw new RuntimeException();
+            throw new IllegalArgumentException("Sorry, the event is Sold out");
         }else{
             return true;
         }
+    }
+
+    public int getAvaiable(){
+        int avaiableTickets = getCapacityLocation() - getBooking();
+        return avaiableTickets;
     }
 
 }
