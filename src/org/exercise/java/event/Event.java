@@ -104,5 +104,26 @@ public abstract class Event implements Comparable<Event>{
         return avaiableTickets;
     }
 
+    //per fare confronti
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        Event event = (Event) o;
+
+        if (getCapacityLocation() != event.getCapacityLocation()) return false;
+        if (getBooking() != event.getBooking()) return false;
+        if (getTitle() != null ? !getTitle().equals(event.getTitle()) : event.getTitle() != null) return false;
+        return getDateEvent().equals(event.getDateEvent());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getTitle() != null ? getTitle().hashCode() : 0;
+        result = 31 * result + getDateEvent().hashCode();
+        result = 31 * result + getCapacityLocation();
+        result = 31 * result + getBooking();
+        return result;
+    }
 }

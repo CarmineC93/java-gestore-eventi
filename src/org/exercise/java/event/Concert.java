@@ -56,10 +56,9 @@ public class Concert extends Event{
                 '}';
     }
 
-
+    //restituisce un numero int, positivo se la prima data è più grande rispetto ad un'altra, 0 se uguali, negativo se più piccola
     @Override
     public int compareTo(Event e) {
         return getDateEvent().compareTo(e.getDateEvent());
     }
-
 }

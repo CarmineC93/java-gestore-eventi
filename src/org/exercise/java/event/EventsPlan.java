@@ -22,7 +22,15 @@ public class EventsPlan {
 
     /*un metodo che aggiunge alla lista un Evento, passato come parametro*/
     public void addEvent(Event event){
+        if(event ==null){
+            throw new IllegalArgumentException("Event must not be null");
+        }
         events.add(event);
+    }
+
+    public boolean removeEvent(Event event){
+        //tramite override di equals e hascode in classe Event, è in grado di confrontare gli eventi, quello inserito nel parametro e quello corrispondente negli events
+        return events.remove(event);
     }
 
     /*un metodo che restituisce una lista con tutti gli eventi presenti in una certa data*/
@@ -38,6 +46,10 @@ public class EventsPlan {
     }
 
     /*un metodo che restituisce quanti eventi sono presenti nel programma*/
+
+    public int getNumberOfEvents(){
+        return events.size();
+    }
     public List<Event> allEvents(){
         return this.events;
     }
@@ -63,8 +75,6 @@ public class EventsPlan {
 
         return orderedList;
     }
-
-
 
     @Override
     public String toString() {
